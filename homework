@@ -1,0 +1,40 @@
+# Student Grade Calculator and Evaluator System
+
+def calculate_average(scores):
+    """Calculates and returns the average score."""
+    if not scores:
+        return 0
+    return sum(scores) / len(scores)
+
+
+def check_status(average, passing_grade=60):
+    """Checks if the student passed or failed based on average."""
+    if average >= passing_grade:
+        return "Passed"
+    else:
+        return "Failed"
+
+
+def main():
+    print("--- Student Grade Management System ---")
+
+    student_name = input("Enter student name: ")
+    num_subjects = int(input("Enter number of subjects: "))
+
+    scores = []
+    for i in range(1, num_subjects + 1):
+        score = float(input(f"Enter score for subject {i}: "))
+        scores.append(score)
+
+    avg = calculate_average(scores)
+    status = check_status(avg)
+
+    print("\n--- Summary Results ---")
+    print(f"Student Name : {student_name}")
+    print(f"Total Scores : {scores}")
+    print(f"Average Score: {avg:.2f}")
+    print(f"Final Status : {status}")
+
+
+if __name__ == "__main__":
+    main()
